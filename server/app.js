@@ -9,12 +9,12 @@ import db from './config/db' // eslint-disable-line no-unused-vars
 
 const app = new Express()
 
-const errorHandler = (error, req, res) => {
+const errorHandler = (error, req, res, next) => {
   if (error.status && error.message) {
     return res.status(error.status).send(error.message).end()
   }
 
-  return res.status(500).send('An internal error occurred.').end()
+  return res.status(500).send('Internal Server Error!').end()
 }
 
 /* Middleware */
