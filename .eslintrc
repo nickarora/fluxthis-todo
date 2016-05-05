@@ -32,10 +32,5 @@
     "arrow-body-style": 1,
     "prefer-const": 1,
     "no-return-assign": 1,
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack":  { "config": "webpack.config.babel.js" }
-    }
   }
 }
