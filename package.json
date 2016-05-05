@@ -1,0 +1,19 @@
+{
+  "name": "fluxthis-todo",
+  "version": "0.0.1",
+  "description": "todo list built with node, express, mongo, and fluxthis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickarora/fluxthis-todo.git"
+  },
+  "author": "Nick Arora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickarora/fluxthis-todo/issues"
+  },
+  "homepage": "https://github.com/nickarora/fluxthis-todo#readme"
+}
