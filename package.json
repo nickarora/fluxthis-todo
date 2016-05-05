@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
-    "lint": "eslint . --ext .js --ext .jsx --cache || true"
+    "lint": "eslint . --ext .js --ext .jsx --cache || true",
+    "seed": "node server/tasks/seed-development.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.8.0",
+    "bluebird": "^3.3.5",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "mongoose": "^4.4.14",

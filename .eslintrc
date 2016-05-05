@@ -1,17 +1,17 @@
 {
   "extends": [
-    "airbnb",
+    "airbnb"
   ],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "restParams": true
-    },
+    }
   },
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true,
+    "mocha": true
   },
   "rules": {
     "no-undef": 2,
@@ -31,6 +31,6 @@
     "quote-props": 1,
     "arrow-body-style": 1,
     "prefer-const": 1,
-    "no-return-assign": 1,
+    "no-return-assign": 1
   }
 }
