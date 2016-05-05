@@ -4,7 +4,8 @@
   "description": "todo list built with node, express, mongo, and fluxthis",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "lint": "eslint . --ext .js --ext .jsx --cache || true"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,11 @@
   },
   "homepage": "https://github.com/nickarora/fluxthis-todo#readme",
   "devDependencies": {
-    "babel-register": "^6.8.0"
+    "babel-register": "^6.8.0",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
+    "eslint-plugin-react": "^5.0.1"
   }
 }
