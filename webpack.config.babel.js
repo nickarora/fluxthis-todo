@@ -16,7 +16,7 @@ const config = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.es6', '.es6.js'],
   },
   module: {
     preLoaders: [
