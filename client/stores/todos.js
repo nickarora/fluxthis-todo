@@ -2,13 +2,17 @@
 import ImmutableStore from 'fluxthis/src/ImmutableStore'
 import ACTION_TYPES from '../constants/action-types'
 
-const Immutable = ImmutableStore.ImmutableStore
+const Immutable = ImmutableStore.Immutable
 
 export default new ImmutableStore({
   displayName: 'TodosStore',
 
   init() {
-    this.todos = Immutable.List([])
+    this.todos = Immutable.List([
+      Immutable.Map({ note: 'Note1' }),
+      Immutable.Map({ note: 'Note2' }),
+      Immutable.Map({ note: 'Note3' }),
+    ])
 
     this.status = Immutable.Map({
       pendingUpdate: false,

@@ -10,7 +10,7 @@ const TodosList = (props) =>
   </ul>
 
 TodosList.propTypes = {
-  todos: PropTypes.object.isRequired, // ImmutableJS List<Map>
+  todos: PropTypes.object, // ImmutableJS List<Map>
 }
 
 export default TodosList
