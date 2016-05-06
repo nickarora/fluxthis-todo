@@ -5,7 +5,7 @@ import React, { PropTypes } from 'react'
 const TodosList = (props) =>
   <ul>
     {props.todos.map(todo =>
-      <li key={todo.get('note')}>{todo.get('note')}</li>
+      <li key={todo.get('id')}>{todo.get('note')}</li>
     )}
   </ul>
 
