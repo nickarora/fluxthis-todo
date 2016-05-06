@@ -35,7 +35,7 @@ const config = {
     ],
   },
   devServer: {
-    contentBase: PATHS.src,
+    contentBase: PATHS.dist,
     publicPath: '/',
     hot: true,
     historyApiFallback: true,
