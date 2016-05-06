@@ -51,6 +51,7 @@
     "react-bootstrap": "^0.29.3",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
+    "request": "^2.72.0",
     "webpack": "^1.13.0"
   },
   "devDependencies": {
