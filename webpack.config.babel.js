@@ -4,6 +4,7 @@ import path from 'path'
 const PATHS = {
   dist: path.join(__dirname, 'dist'),
   src: path.join(__dirname, 'client'),
+  fluxthis: path.join(__dirname, 'node_modules/fluxthis'),
 }
 
 const config = {
@@ -21,16 +22,16 @@ const config = {
   module: {
     preLoaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.jsx?$|\.es6.js$/,
         loaders: ['eslint'],
         include: [PATHS.src],
       },
     ],
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['babel'],
-        include: [PATHS.src],
+        test: /\.jsx?$|\.es6.js/,
+        loaders: ['babel-loader'],
+        include: [PATHS.src, PATHS.fluxthis],
       },
     ],
   },

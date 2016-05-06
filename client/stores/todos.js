@@ -2,7 +2,7 @@
 import ImmutableStore from 'fluxthis/src/ImmutableStore'
 import ACTION_TYPES from '../constants/action-types'
 
-const Immutable = ImmutableStore.Immutable
+const Immutable = ImmutableStore.ImmutableStore
 
 export default new ImmutableStore({
   displayName: 'TodosStore',
@@ -28,8 +28,8 @@ export default new ImmutableStore({
   },
 
   public: {
-    groups() {
-      return this.groups
+    todos() {
+      return this.todos
     },
 
     status() {
