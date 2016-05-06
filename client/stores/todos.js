@@ -43,7 +43,7 @@ export default new ImmutableStore({
 
   private: {
     setTodos(payload) {
-      const responseBody = JSON.parse(payload.response.body)
+      const responseBody = payload.response.body
       this.todos = Immutable.fromJS(responseBody)
       this.status = this.status.merge({
         pendingUpdate: false,
@@ -56,14 +56,14 @@ export default new ImmutableStore({
     },
 
     prependTodo(payload) {
-      const responseBody = JSON.parse(payload.response.body)
+      const responseBody = payload.response.body
       const todo = Immutable.fromJS(responseBody)
       this.groups = this.groups.unshift(todo)
       this.status = this.status.set('pendingUpdate', false)
     },
 
     removeTodo(payload) {
-      const responseBody = JSON.parse(payload.response.body)
+      const responseBody = payload.response.body
       const deletedTodo = Immutable.fromJS(responseBody)
       const updatedTodos = this.todos.filter(todo => todo.get('id') !== deletedTodo.id)
       this.status = this.status.set('pendingUpdate', false)
@@ -71,7 +71,7 @@ export default new ImmutableStore({
     },
 
     updateTodo(payload) {
-      const responseBody = JSON.parse(payload.response.body)
+      const responseBody = payload.response.body
       const updatedTodo = Immutable.fromJS(responseBody)
       const index = this.todos.findIndex(todo => todo.get('id') === updatedTodo.id)
       this.todos = this.todos.set(index, updatedTodo)
