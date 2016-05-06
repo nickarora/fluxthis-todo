@@ -9,7 +9,7 @@ import db from './config/db' // eslint-disable-line no-unused-vars
 
 const app = new Express()
 
-const errorHandler = (error, req, res, next) => {
+const errorHandler = (error, req, res) => {
   if (error.status && error.message) {
     return res.status(error.status).send(error.message).end()
   }
