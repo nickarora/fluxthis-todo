@@ -1,6 +1,7 @@
 import Express from 'express'
 import bodyParser from 'body-parser'
 import path from 'path'
+import cors from 'cors'
 
 import routes from './routes'
 
@@ -19,7 +20,9 @@ const errorHandler = (error, req, res) => {
 
 /* Middleware */
 // Parse bodies as URL-encoded (from HTML forms)
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true, limit: '25mb' }))
+app.use(bodyParser.json({ type: ['application/json'] }))
 
 /* Routes */
 app.use('/api', routes)

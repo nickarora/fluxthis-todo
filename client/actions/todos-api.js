@@ -13,6 +13,21 @@ const TodosAPIActions = new APIActionCreator({
     success: ACTION_TYPES.GET_TODOS_SUCCESS,
     failure: ACTION_TYPES.GET_TODOS_FAILURE,
   },
+
+  addTodo: {
+    route: `${baseUrl}/api/todos`,
+    method: 'POST',
+    pending: ACTION_TYPES.ADD_TODO_PENDING,
+    success: ACTION_TYPES.ADD_TODO_SUCCESS,
+    failure: ACTION_TYPES.ADD_TODO_FAILURE,
+    createRequest(todo) {
+      return {
+        body: {
+          todo,
+        },
+      }
+    },
+  },
 })
 
 export default TodosAPIActions

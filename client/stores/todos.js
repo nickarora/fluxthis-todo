@@ -8,11 +8,7 @@ export default new ImmutableStore({
   displayName: 'TodosStore',
 
   init() {
-    this.todos = Immutable.List([
-      Immutable.Map({ note: 'Note1' }),
-      Immutable.Map({ note: 'Note2' }),
-      Immutable.Map({ note: 'Note3' }),
-    ])
+    this.todos = Immutable.List([])
 
     this.status = Immutable.Map({
       pendingUpdate: false,
@@ -58,7 +54,7 @@ export default new ImmutableStore({
     prependTodo(payload) {
       const responseBody = payload.response.body
       const todo = Immutable.fromJS(responseBody)
-      this.groups = this.groups.unshift(todo)
+      this.todos = this.todos.unshift(todo)
       this.status = this.status.set('pendingUpdate', false)
     },
 

@@ -11,26 +11,32 @@ router.get('/', (req, res, next) =>
     )
 )
 
-router.put('/', ({ todo }, res, next) =>
+router.put('/', (req, res, next) =>
   Todo.findOneAndUpdate(
-    { _id: todo.id },
-    { note: todo.note, complete: todo.complete }
+    { _id: req.body.todo.id },
+    { note: req.body.todo.note, complete: req.body.todo.complete }
   ).then(
     updatedTodo => res.status(200).json(updatedTodo),
     err => next(err)
   )
 )
 
-router.post('/', ({ todo }, res, next) =>
-  Todo.insert(todo)
+router.post('/', (req, res, next) => {
+  const { todo } = req.body
+  const newTodo = new Todo({
+    note: todo.note,
+    complete: todo.complete,
+  })
+
+  newTodo.save()
   .then(
     insertedTodo => res.status(200).json(insertedTodo),
     err => next(err)
   )
-)
+})
 
-router.delete('/', ({ todo }, res, next) =>
-  Todo.remove({ _id: todo.id })
+router.delete('/', (req, res, next) =>
+  Todo.remove({ _id: req.body.todo.id })
   .then(
     deletedTodo => res.status(200).json(deletedTodo),
     err => next(err)
