@@ -1,10 +1,21 @@
 import React, { PropTypes } from 'react'
 
-const Todo = ({ todo }) =>
-  <li key={todo.get('id')}>{todo.get('note')}</li>
+import { Button, ButtonGroup } from 'react-bootstrap'
+
+const Todo = ({ todo, deleteTodo }) =>
+  <tr>
+    <td>
+      <h5>{todo.get('note')}</h5>
+      <ButtonGroup>
+        <Button>✓</Button>
+        <Button onClick={deleteTodo}>x</Button>
+      </ButtonGroup>
+    </td>
+  </tr>
 
 Todo.propTypes = {
-  todo: PropTypes.object, // ImmutableJS Map
+  todo: PropTypes.object.isRequired, // ImmutableJS Map,
+  deleteTodo: PropTypes.func.isRequired,
 }
 
 export default Todo

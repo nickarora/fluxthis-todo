@@ -33,6 +33,10 @@ const TodosView = React.createClass({
     this.setState({ newTodoText: '' })
   },
 
+  deleteTodo(todo) {
+    TodosAPIActions.deleteTodo(todo)
+  },
+
   render() {
     return (
       <Row>
@@ -52,7 +56,10 @@ const TodosView = React.createClass({
             </Button>
           </form>
           <br />
-          <TodosList todos={this.props.todos} />
+          <TodosList
+            todos={this.props.todos}
+            deleteTodo={this.deleteTodo}
+          />
         </Col>
       </Row>
     )

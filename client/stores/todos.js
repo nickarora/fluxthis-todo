@@ -17,7 +17,7 @@ export default new ImmutableStore({
 
     this.bindActions(
       ACTION_TYPES.GET_TODOS_SUCCESS, this.setTodos,
-      ACTION_TYPES.ADD_TODO_SUCCESS, this.prependTodo,
+      ACTION_TYPES.ADD_TODO_SUCCESS, this.addTodo,
       ACTION_TYPES.UPDATE_TODO_SUCCESS, this.updateTodo,
       ACTION_TYPES.DELETE_TODO_SUCCESS, this.removeTodo,
       ACTION_TYPES.GET_TODOS_PENDING, this.setPending,
@@ -51,17 +51,17 @@ export default new ImmutableStore({
       this.status = this.status.set('pendingUpdate', true)
     },
 
-    prependTodo(payload) {
+    addTodo(payload) {
       const responseBody = payload.response.body
       const todo = Immutable.fromJS(responseBody)
-      this.todos = this.todos.unshift(todo)
+      this.todos = this.todos.push(todo)
       this.status = this.status.set('pendingUpdate', false)
     },
 
     removeTodo(payload) {
-      const responseBody = payload.response.body
-      const deletedTodo = Immutable.fromJS(responseBody)
+      const deletedTodo = payload.request.body.todo.toJS()
       const updatedTodos = this.todos.filter(todo => todo.get('id') !== deletedTodo.id)
+
       this.status = this.status.set('pendingUpdate', false)
       this.todos = updatedTodos
     },

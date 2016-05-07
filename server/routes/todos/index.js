@@ -35,12 +35,13 @@ router.post('/', (req, res, next) => {
   )
 })
 
-router.delete('/', (req, res, next) =>
+router.delete('/', (req, res, next) => {
   Todo.remove({ _id: req.body.todo.id })
   .then(
     deletedTodo => res.status(200).json(deletedTodo),
     err => next(err)
   )
-)
+})
+
 
 export default router

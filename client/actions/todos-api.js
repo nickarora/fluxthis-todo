@@ -28,6 +28,24 @@ const TodosAPIActions = new APIActionCreator({
       }
     },
   },
+
+  deleteTodo: {
+    route: `${baseUrl}/api/todos`,
+    method: 'DELETE',
+    pending: ACTION_TYPES.DELETE_TODO_PENDING,
+    success: ACTION_TYPES.DELETE_TODO_SUCCESS,
+    failure: ACTION_TYPES.DELETE_TODO_FAILURE,
+    createRequest(todo) {
+      return {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: {
+          todo,
+        },
+      }
+    },
+  },
 })
 
 export default TodosAPIActions
