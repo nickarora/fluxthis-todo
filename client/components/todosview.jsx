@@ -33,6 +33,10 @@ const TodosView = React.createClass({
     this.setState({ newTodoText: '' })
   },
 
+  updateTodo(todo) {
+    TodosAPIActions.updateTodo(todo)
+  },
+
   deleteTodo(todo) {
     TodosAPIActions.deleteTodo(todo)
   },
@@ -59,6 +63,7 @@ const TodosView = React.createClass({
           <TodosList
             todos={this.props.todos}
             deleteTodo={this.deleteTodo}
+            updateTodo={this.updateTodo}
           />
         </Col>
       </Row>

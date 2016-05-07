@@ -29,6 +29,21 @@ const TodosAPIActions = new APIActionCreator({
     },
   },
 
+  updateTodo: {
+    route: `${baseUrl}/api/todos`,
+    method: 'PUT',
+    pending: ACTION_TYPES.UPDATE_TODO_PENDING,
+    success: ACTION_TYPES.UPDATE_TODO_SUCCESS,
+    failure: ACTION_TYPES.UPDATE_TODO_FAILURE,
+    createRequest(todo) {
+      return {
+        body: {
+          todo,
+        },
+      }
+    },
+  },
+
   deleteTodo: {
     route: `${baseUrl}/api/todos`,
     method: 'DELETE',

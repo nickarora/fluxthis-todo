@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 import { Button, ButtonGroup } from 'react-bootstrap'
 
-const Todo = ({ todo, deleteTodo }) =>
+const Todo = ({ todo, deleteTodo, toggleTodo }) =>
   <tr>
     <td>
       <h5
@@ -11,7 +11,7 @@ const Todo = ({ todo, deleteTodo }) =>
         {todo.get('note')}
       </h5>
       <ButtonGroup>
-        <Button>✓</Button>
+        <Button onClick={toggleTodo}>✓</Button>
         <Button onClick={deleteTodo}>x</Button>
       </ButtonGroup>
     </td>
@@ -20,6 +20,7 @@ const Todo = ({ todo, deleteTodo }) =>
 Todo.propTypes = {
   todo: PropTypes.object.isRequired, // ImmutableJS Map,
   deleteTodo: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
 }
 
 export default Todo

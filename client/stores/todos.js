@@ -67,10 +67,16 @@ export default new ImmutableStore({
     },
 
     updateTodo(payload) {
-      const responseBody = payload.response.body
-      const updatedTodo = Immutable.fromJS(responseBody)
-      const index = this.todos.findIndex(todo => todo.get('id') === updatedTodo.id)
-      this.todos = this.todos.set(index, updatedTodo)
+      const updatedTodo = payload.request.body.todo
+      const newTodos = this.todos.map((todo) => {
+        if (todo.get('id') === updatedTodo.get('id')) {
+          return updatedTodo
+        }
+
+        return todo
+      })
+
+      this.todos = newTodos
       this.status = this.status.set('pendingUpdate', false)
     },
   },
