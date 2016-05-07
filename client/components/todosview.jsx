@@ -36,7 +36,7 @@ const TodosView = React.createClass({
   render() {
     return (
       <Row>
-        <Col xs={12}>
+        <Col xs={8}>
           <h2>Todos</h2>
           <form onSubmit={this.createNewTodo}>
             <FormGroup controlId='newTodoText'>
@@ -51,6 +51,7 @@ const TodosView = React.createClass({
               Submit
             </Button>
           </form>
+          <br />
           <TodosList todos={this.props.todos} />
         </Col>
       </Row>

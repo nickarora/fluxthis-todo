@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
-// import { Immutable } from 'fluxthis/src/ImmutableStore'
-// import Todo from './todo'
+import Todo from './todo'
 
 const TodosList = (props) =>
   <ul>
     {props.todos.map(todo =>
-      <li key={todo.get('id')}>{todo.get('note')}</li>
+      <Todo todo={todo} />
     )}
   </ul>
 
