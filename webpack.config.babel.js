@@ -17,7 +17,7 @@ const config = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.es6', '.es6.js'],
+    extensions: ['', '.js', '.jsx', '.es6', '.es6.js', '.css'],
   },
   module: {
     preLoaders: [
@@ -28,6 +28,11 @@ const config = {
       },
     ],
     loaders: [
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: [PATHS.src],
+      },
       {
         test: /\.jsx?$|\.es6.js/,
         loaders: ['babel-loader'],

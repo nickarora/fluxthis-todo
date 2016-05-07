@@ -2,6 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory, Router, Route, IndexRoute } from 'react-router'
 
+import './styles/main.css'
+
 import App from './components/app.jsx'
 import TodosView from './components/todosview.jsx'
 

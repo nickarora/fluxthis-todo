@@ -5,7 +5,11 @@ import { Button, ButtonGroup } from 'react-bootstrap'
 const Todo = ({ todo, deleteTodo }) =>
   <tr>
     <td>
-      <h5>{todo.get('note')}</h5>
+      <h5
+        className={todo.get('complete') ? 'todo-complete' : ''}
+      >
+        {todo.get('note')}
+      </h5>
       <ButtonGroup>
         <Button>✓</Button>
         <Button onClick={deleteTodo}>x</Button>
